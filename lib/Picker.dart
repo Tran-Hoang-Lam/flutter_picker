@@ -304,7 +304,6 @@ class PickerWidgetState<T> extends State<_PickerWidget> {
   final Map<int, int> lastData = new Map<int, int>();
 
   List<Widget> _buildViews() {
-    print("_buildViews");
     if (theme == null) theme = Theme.of(context);
 
     List<Widget> items = [];
@@ -335,7 +334,6 @@ class PickerWidgetState<T> extends State<_PickerWidget> {
               scrollController: scrollController[i],
               itemExtent: picker.itemExtent,
               onSelectedItemChanged: (int index) {
-                print("onSelectedItemChanged");
                 setState(() {
                   picker.selecteds[i] = index;
                   updateScrollController(i);
@@ -528,7 +526,6 @@ class PickerDataAdapter<T> extends PickerAdapter<T> {
         }
       }
     }
-    print("data.length: ${data.length}");
   }
 
   _parsePickerDataItem(List pickerdata, List<PickerItem> data) {
@@ -561,7 +558,6 @@ class PickerDataAdapter<T> extends PickerAdapter<T> {
 
   void setColumn(int index) {
     if (isArray) {
-      print("index: $index");
       if (index + 1 < data.length)
         _datas = data[index + 1].children;
       else
